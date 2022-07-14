@@ -26,8 +26,8 @@ steps:
 
 
 - task: PublishBuildArtifacts@1
-inputs:
-  PathtoPublish: '$(System.DefaultWorkingDirectory)'
-  ArtifactName: 'ansible-artifact'
-  publishLocation: 'Container'
+  inputs:
+   PathtoPublish: '$(System.DefaultWorkingDirectory)'
+   ArtifactName: 'ansible-artifact'
+   publishLocation: 'Container'
 
