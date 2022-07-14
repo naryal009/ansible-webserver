@@ -1,0 +1,4 @@
+webservers:
+  hosts:
+    server1:
+      ansible_host: <managed-node-ip>
