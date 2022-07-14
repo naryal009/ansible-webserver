@@ -5,3 +5,4 @@ pool:
 steps:
 - script: |
            echo "First pipeline script"
+           echo "Another line of code"
