@@ -1,7 +1,7 @@
 name: My Workflow
 on: push
 jobs:
-my_workflow:
-runs-on: ubuntu-latest
-steps:
-- run: echo Github Workflows!
+  my_workflow:
+  runs-on: ubuntu-latest
+  steps:
+    - run: echo Github Workflows!
