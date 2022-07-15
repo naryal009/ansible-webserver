@@ -1,0 +1,14 @@
+name: variables
+on: push
+env:
+ root_env_variable: Hi!!!😃
+ jobs:
+   job_1
+   runs-onL: ubuntu-latest
+   env:
+     job_env_variable: Good Morning 🌄
+     steps:
+      - name: "JOB1"
+       run: echo "$root_env_variable $First_Name $job_env_variable"
+       env:
+        First_Name: user1
