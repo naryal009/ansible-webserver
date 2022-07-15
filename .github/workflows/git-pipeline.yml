@@ -1,7 +1,34 @@
 name: Ansible-GitHub actions
 on: push
 jobs:
-repo_updated:
-runs-on: self-hosted
-steps:
-- uses: actions/checkout@master
+  repo_updated:
+   runs-on: self-hosted
+   steps:
+   - uses: actions/checkout@master
+# Script to install ansible :
+  install_ansible:
+    needs: repo_updated
+    runs-on: self-hosted
+    steps:
+     - name: Installing ansible
+       run: |
+         sudo apt-get update -y
+         sudo apt install -y ansible
+         ansible --version
+# Script to install ansible-lint :
+  install_ansible_lint:
+    needs: repo_updated
+    runs-on: self-hosted
+    steps:
+     - name: Installing ansible-lint
+       run: |
+         sudo apt-get update -y
+         sudo apt-get install -y ansible-lint
+         ansible-lint --version
+# Script to lint ansible playbooks :
+  run_ansible_lint:
+    needs: [install_ansible, install_ansible_lint]
+    runs-on: self-hosted
+    steps:
+     - name: Linting ansible playbooks
+       run: ansible-lint
